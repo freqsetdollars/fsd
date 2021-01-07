@@ -1,5 +1,5 @@
 /*
-    Copyright 2020 Empty Set Squad <emptysetsquad@protonmail.com>
+    Copyright 2020 Freq Set Dollar <freqsetdollar@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -60,6 +60,10 @@ contract Setters is State, Getters {
 
     function decrementTotalDebt(uint256 amount, string memory reason) internal {
         _state.balance.debt = _state.balance.debt.sub(amount, reason);
+    }
+
+	function setDebtToZero() internal {
+        _state.balance.debt = 0;
     }
 
     function incrementTotalRedeemable(uint256 amount) internal {

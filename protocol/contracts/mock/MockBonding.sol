@@ -1,5 +1,5 @@
 /*
-    Copyright 2020 Empty Set Squad <emptysetsquad@protonmail.com>
+    Copyright 2020 Freq Set Dollar <freqsetdollar@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -26,5 +26,9 @@ contract MockBonding is MockComptroller, Bonding {
 
     function stepE() external {
         Bonding.step();
+    }
+
+    function dollarE() public view returns (address) {
+        return address(_state.provider.dollar);
     }
 }

@@ -1,6 +1,6 @@
 /*
     Copyright 2018-2019 zOS Global Limited
-    Copyright 2020 Empty Set Squad <emptysetsquad@protonmail.com>
+    Copyright 2020 Freq Set Dollar <freqsetdollar@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ contract Upgradeable is State {
 
         emit Upgraded(newImplementation);
     }
-
+    
     /**
      * @dev Sets the implementation address of the proxy.
      * @param newImplementation Address of the new implementation.

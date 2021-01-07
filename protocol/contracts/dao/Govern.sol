@@ -1,5 +1,5 @@
 /*
-    Copyright 2020 Empty Set Squad <emptysetsquad@protonmail.com>
+    Copyright 2020 Freq Set Dollar <freqsetdollar@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -100,12 +100,6 @@ contract Govern is Setters, Permission, Upgradeable {
         );
 
         Require.that(
-            epoch() <= endsAfter.add(1).add(Constants.getGovernanceExpiration()),
-            FILE,
-            "Expired"
-        );
-
-        Require.that(
             Decimal.ratio(votesFor(candidate), totalBondedAt(endsAfter)).greaterThan(Constants.getGovernanceQuorum()),
             FILE,
             "Must have quorom"
@@ -158,6 +152,7 @@ contract Govern is Setters, Permission, Upgradeable {
         }
 
         Decimal.D256 memory stake = Decimal.ratio(balanceOf(account), totalSupply());
-        return stake.greaterThan(Constants.getGovernanceProposalThreshold());
+        //1%
+        return stake.greaterThan(Decimal.ratio(1, 100)); 
     }
 }

@@ -1,35 +1,29 @@
-# døllar
+# FSD
 fully decentralized self-stabilizing dollar.
 
 ## stablecoin
 
-- shorthand name: `døllar`
-- full name: `Empty Set Dollar`
-- symbol: `ESD`
+- full name: `Freq Set Dollar`
+- symbol: `FSD`
 - decimals: `18`
-- character: `∅ [U+2205], ∅100`
-- icons:
+- icon:
 
-![mfGW7wXg_400x400](https://emptyset.finance/logo/esd_logo_circle.png)
-![mfGW7wXg_400x400](https://emptyset.finance/logo/esd_logo_square.png)
+![fsd_logo](https://github.com/freqsetdollars/fsd/blob/online/resource/logo.png)
 
 ## dashboard
 
-simple [dashboard](https://github.com/emptysetsquad/dollar-dashboard) for interacting with the døllar protocol.
-
-## whitepaper
-
-is available [here](https://github.com/emptysetsquad/dollar/blob/master/d%C3%B8llar.pdf).
+(website)[https://freqset.finance/#/]
 
 ## contracts
 ### mainnet
-- `0x443D2f2755DB5942601fa062Cc248aAA153313D3` **DAO**
-- `0x36F3FD68E7325a35EB768F1AedaAe9EA0689d723` **Døllar**
-- `0xea9f8bb8B5e8BA3D38628f0E18Ee82300eddBa0E` **Oracle**
-- `0x88ff79eB2Bc5850F27315415da8685282C7610F9` **UniswapV2 USDC:ESD Pair**
-- `0xBBDA9B2f267b94147cB5b51653237C2F1EE69054` **LP Incentivation Pool**
+- `0x590d0fC2096f0bB063d7033Fe97f6C1C512ba2B2` **DAO**
+- `0x15D77A0E8fb5387a2D707CC297ad2879F7b13Cc1` **DAO Implemetation**
+- `0xD27af03cb73a29eE2f37194c70c4Ee13B68fE8cb` **FSD**
+- `0xDf35d37dF61e013FAc15DA8575045b2d4d0D1a3F` **Oracle**
+- `0xa9D678EE709E1db20e6EeC252FDD1439c71E3692` **UniswapV2 USDC:FSD Pair**
+- `0x11De873E978ca2d0A5282C6Add873C4329daD68B` **LP Incentivation Pool**
 
-## audit
+## audit of forked codebase
 
 is available [here](https://github.com/emptysetsquad/dollar/blob/master/audit/REP-Dollar-06-11-20.pdf).
 
@@ -37,7 +31,7 @@ is available [here](https://github.com/emptysetsquad/dollar/blob/master/audit/RE
 this project is an experiment - the protocol is audited, and we've put a significant amount of work into testing as well as generally de-risking the design of its core mechanism, however participants should take great caution as bugs resulting in loss of funds are always a possibility.
 
 ```
-Copyright 2020 Empty Set Squad <emptysetsquad@protonmail.com>
+Copyright 2020 Freq Set Dollar <freqsetdollar@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use the included code except in compliance with the License.
@@ -53,4 +47,4 @@ limitations under the License.
 ```
 
 <br>
-made with 💔️ by the {ess}.
+made with ❤️ by the {FSD}.

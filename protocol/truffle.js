@@ -18,9 +18,9 @@
  *
  */
 const PrivateKeyProvider = require('truffle-privatekey-provider');
-const privateKey = process.env.ESD_PRIVATE_KEY;
-const infuraId = process.env.ESD_INFURA_ID;
-const etherscanKey = process.env.ESD_ETHERSCAN_KEY;
+const privateKey = process.env.FSD_PRIVATE_KEY;
+const infuraId = process.env.FSD_INFURA_ID;
+const etherscanKey = process.env.FSD_ETHERSCAN_KEY;
 
 module.exports = {
   /**

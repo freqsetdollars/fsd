@@ -1,5 +1,5 @@
 /*
-    Copyright 2020 Empty Set Squad <emptysetsquad@protonmail.com>
+    Copyright 2020 Freq Set Dollar <freqsetdollar@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,35 +22,30 @@ import "./Market.sol";
 import "./Regulator.sol";
 import "./Bonding.sol";
 import "./Govern.sol";
+import "../oracle/Oracle.sol";
 import "../Constants.sol";
 
 contract Implementation is State, Bonding, Market, Regulator, Govern {
     using SafeMath for uint256;
 
-    event Advance(uint256 indexed epoch, uint256 block, uint256 timestamp);
+    event Advance(uint256 indexed epoch, uint256 block, uint256 timestamp, string res);
     event Incentivization(address indexed account, uint256 amount);
-
+    
     function initialize() initializer public {
-        // Bootstrap Treasury
-        incentivize(Constants.getTreasuryAddress(), 5e23);
-        // Reward committer
-        incentivize(msg.sender, Constants.getAdvanceIncentive());
-        // Dev rewards
-
     }
 
-    function advance() external {
-        incentivize(msg.sender, Constants.getAdvanceIncentive());
-
+    function advance() external incentivized {
         Bonding.step();
         Regulator.step();
         Market.step();
-
-        emit Advance(epoch(), block.number, block.timestamp);
+        emit Advance(epoch(), block.number, block.timestamp, "market done");
     }
 
-    function incentivize(address account, uint256 amount) private {
-        mintToAccount(account, amount);
-        emit Incentivization(account, amount);
+    modifier incentivized {
+        // Mint advance reward to sender
+        uint256 incentive = Constants.getAdvanceIncentive();
+        mintToAccount(msg.sender, incentive);
+        emit Incentivization(msg.sender, incentive);
+        _;
     }
 }

@@ -1,5 +1,5 @@
 /*
-    Copyright 2020 Empty Set Squad <emptysetsquad@protonmail.com>
+    Copyright 2020 Freq Set Dollar <freqsetdollar@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import "./IDollar.sol";
 contract Dollar is IDollar, MinterRole, ERC20Detailed, Permittable, ERC20Burnable  {
 
     constructor()
-    ERC20Detailed("Empty Set Dollar", "ESD", 18)
+    ERC20Detailed("Freq Set Dollar", "FSD", 18)
     Permittable()
     public
     { }
