@@ -8,11 +8,11 @@ fully decentralized self-stabilizing dollar.
 - decimals: `18`
 - icon:
 
-![fsd_logo](https://github.com/freqsetdollars/fsd/blob/online/resource/logo.png)
+![fsd_logo](https://github.com/freqsetdollars/fsd/blob/master/resource/logo.png?raw=true)
 
 ## dashboard
 
-(website)[https://freqset.finance/#/]
+[website](https://freqset.finance/#/)
 
 ## contracts
 ### mainnet
