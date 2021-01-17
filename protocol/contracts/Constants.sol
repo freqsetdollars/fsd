@@ -79,6 +79,14 @@ library Constants {
 
     uint256 private constant ORACLE_POOL_RATIO = 50; // 50%
 
+    /* bonds */
+    uint256 private constant BOND_REDEEMABLE_TWAP_CAP = 120e16; // 1.2USDC
+    
+    uint256 private constant BOND_REDEEMABLE_TWAP_FLOOR = 1e18; // 1USDC
+
+    //bond pool : coupon pool = 4:1
+    uint256 private constant BOND_POOL_RATIO = 80; // 80%
+
     /**
      * Getters
      */
@@ -172,5 +180,17 @@ library Constants {
 
     function getChainId() internal pure returns (uint256) {
         return CHAIN_ID;
+    }
+
+    function getBondRedeemableTWAPCap() internal pure returns (Decimal.D256 memory) {
+        return Decimal.D256({ value: BOND_REDEEMABLE_TWAP_CAP });
+    }
+
+    function getBondRedeemableTWAPFloor() internal pure returns (Decimal.D256 memory) {
+        return Decimal.D256({ value: BOND_REDEEMABLE_TWAP_FLOOR });
+    }
+
+    function getBondPoolRatio() internal pure returns (uint256) {
+        return BOND_POOL_RATIO;
     }
 }
