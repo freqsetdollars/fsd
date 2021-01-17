@@ -165,29 +165,6 @@ contract Market is Comptroller, Curve {
     //
     // ============================ coupon logic ==========================
     //
-    function purchaseCoupons(uint256 dollarAmount) external returns (uint256) {
-        Require.that(
-            dollarAmount > 0,
-            FILE,
-            "Must purchase non-zero amount"
-        );
-
-        Require.that(
-            totalDebt() >= dollarAmount,
-            FILE,
-            "Not enough debt"
-        );
-
-        uint256 epoch = epoch();
-        uint256 couponAmount = dollarAmount.add(couponPremium(dollarAmount));
-        burnFromAccount(msg.sender, dollarAmount);
-        incrementBalanceOfCoupons(msg.sender, epoch, couponAmount);
-
-        emit CouponPurchase(msg.sender, epoch, dollarAmount, couponAmount);
-
-        return couponAmount;
-    }
-
     function redeemCoupons(uint256 couponEpoch, uint256 couponAmount) external {
         require(epoch().sub(couponEpoch) >= 2, "Market: Too early to redeem");
         decrementBalanceOfCoupons(msg.sender, couponEpoch, couponAmount, "Market: Insufficient coupon balance");
