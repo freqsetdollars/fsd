@@ -30,7 +30,7 @@ library Constants {
     /* Oracle */
     address private constant USDC = address(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);
 
-    uint256 private constant ORACLE_RESERVE_MINIMUM = 1e10; // 10,000 USDC
+    uint256 private constant ORACLE_RESERVE_MINIMUM = 1e9; // 1000 USDC
 
     /* Bonding */
     uint256 private constant INITIAL_STAKE_MULTIPLE = 1e6; // 100 FSD -> 100M FSDS
