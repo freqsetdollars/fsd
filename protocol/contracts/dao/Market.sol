@@ -19,10 +19,13 @@ pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "./Curve.sol";
+import "./Permission.sol";
 import "./Comptroller.sol";
 import "../Constants.sol";
 
-contract Market is Comptroller, Curve {
+
+
+contract Market is Comptroller, Curve, Permission {
     using SafeMath for uint256;
 
     bytes32 private constant FILE = "Market";
@@ -95,10 +98,22 @@ contract Market is Comptroller, Curve {
         return Decimal.D256({value: couponAmount}).mul(couponEpochDecayedPenalty).value;
     }
 
+
+
+
+
+
     //
     // ==================== bonds logic =======================
     //
-    function purchaseBonds(uint256 dollarAmount) external returns (uint256) {
+    function purchaseBondsByDAO(uint256 value) external onlyFrozenOrFluid(msg.sender) {
+        uint256 staged = value.mul(balanceOfBonded(msg.sender)).div(balanceOf(msg.sender));
+        decrementTotalBonded(staged, "Bonding: insufficient total bonded");
+        decrementBalanceOf(msg.sender, value, "Bonding: insufficient balance");
+        purchaseBonds(staged);
+    }
+
+    function purchaseBonds(uint256 dollarAmount) public returns (uint256) {
 
         uint256 epoch = epoch();
 

@@ -28,7 +28,9 @@ library Constants {
     uint256 private constant BOOTSTRAPPING_PRICE = 220e16; // 2.2 USDC (targeting 5% inflation)
 
     /* Oracle */
-    address private constant USDC = address(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);
+    address private constant USDC = address(0x28709Af9376191653bA671d3C74682cA6F46a4Fd);
+    address private constant DAO = address(0xAabF00a16a3e90A7f959522fd6451676901e336E);
+    address private constant DOLLAR = address(0x3b06B027b4B306d4696b6168D3C6d39E5B3529D0);
 
     uint256 private constant ORACLE_RESERVE_MINIMUM = 1e9; // 1000 USDC
 
@@ -93,6 +95,14 @@ library Constants {
 
     function getUsdcAddress() internal pure returns (address) {
         return USDC;
+    }
+    
+    function getDaoAddress() internal pure returns (address) {
+        return DAO;
+    }
+
+    function getDollarAddress() internal pure returns (address) {
+        return DOLLAR;
     }
 
     function getOracleReserveMinimum() internal pure returns (uint256) {

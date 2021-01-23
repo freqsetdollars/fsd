@@ -32,6 +32,8 @@ contract Implementation is State, Bonding, Market, Regulator, Govern {
     event Incentivization(address indexed account, uint256 amount);
     
     function initialize() initializer public {
+        _state.provider.oracle = new Oracle();
+        oracle().setup();
     }
 
     function advance() external incentivized {

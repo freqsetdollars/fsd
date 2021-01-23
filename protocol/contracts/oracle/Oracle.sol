@@ -44,13 +44,13 @@ contract Oracle is IOracle {
 
     uint256 internal _reserve;
 
-    constructor (address dollar) public {
-        _dao = msg.sender;
-        _dollar = dollar;
+    constructor () public {
+        _dao = dao();
+        _dollar = dollar();
     }
 
     function setup() public onlyDao {
-        _pair = IUniswapV2Pair(IUniswapV2Factory(UNISWAP_FACTORY).createPair(_dollar, usdc()));
+        _pair = IUniswapV2Pair(IUniswapV2Factory(UNISWAP_FACTORY).getPair(_dollar, usdc()));
 
         (address token0, address token1) = (_pair.token0(), _pair.token1());
         _index = _dollar == token0 ? 0 : 1;
@@ -135,6 +135,16 @@ contract Oracle is IOracle {
     function usdc() internal view returns (address) {
         return Constants.getUsdcAddress();
     }
+
+    function dao() internal view returns (address) {
+        return Constants.getDaoAddress();
+    }
+
+    function dollar() internal view returns (address) {
+        return Constants.getDollarAddress();
+    }
+
+
 
     function pair() external view returns (address) {
         return address(_pair);
