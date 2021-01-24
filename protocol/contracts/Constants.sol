@@ -57,7 +57,7 @@ library Constants {
     uint256 private constant GOVERNANCE_PROPOSAL_THRESHOLD = 1e16; // 1%
 
     /* DAO */
-    uint256 private constant ADVANCE_INCENTIVE = 1e20; // 100 FSD
+    uint256 private constant ADVANCE_INCENTIVE = 1e21; // 1000 FSD
 
     uint256 private constant DAO_EXIT_LOCKUP_EPOCHS = 12; // 12 epochs fluid
 
