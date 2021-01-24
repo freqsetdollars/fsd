@@ -47,9 +47,10 @@ contract Oracle is IOracle {
     constructor () public {
         _dao = dao();
         _dollar = dollar();
+        setup();
     }
 
-    function setup() public onlyDao {
+    function setup() private  {
         _pair = IUniswapV2Pair(IUniswapV2Factory(UNISWAP_FACTORY).getPair(_dollar, usdc()));
 
         (address token0, address token1) = (_pair.token0(), _pair.token1());

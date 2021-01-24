@@ -52,7 +52,7 @@ contract Upgradeable is State {
 
         emit Upgraded(newImplementation);
     }
-    
+
     /**
      * @dev Sets the implementation address of the proxy.
      * @param newImplementation Address of the new implementation.

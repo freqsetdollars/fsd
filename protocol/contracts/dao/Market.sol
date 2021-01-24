@@ -107,10 +107,11 @@ contract Market is Comptroller, Curve, Permission {
     // ==================== bonds logic =======================
     //
     function purchaseBondsByDAO(uint256 value) external onlyFrozenOrFluid(msg.sender) {
-        uint256 staged = value.mul(balanceOfBonded(msg.sender)).div(balanceOf(msg.sender));
-        decrementTotalBonded(staged, "Bonding: insufficient total bonded");
-        decrementBalanceOf(msg.sender, value, "Bonding: insufficient balance");
-        purchaseBonds(staged);
+        uint256 balance = value.mul(totalSupply()).div(totalBonded());
+        decrementTotalBonded(value, "Bonding: insufficient total bonded");
+        decrementBalanceOf(msg.sender, balance, "Bonding: insufficient balance");
+        dollar().transfer(msg.sender, value);
+        purchaseBonds(value);
     }
 
     function purchaseBonds(uint256 dollarAmount) public returns (uint256) {
