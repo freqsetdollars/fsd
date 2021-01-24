@@ -28,9 +28,9 @@ library Constants {
     uint256 private constant BOOTSTRAPPING_PRICE = 220e16; // 2.2 USDC (targeting 5% inflation)
 
     /* Oracle */
-    address private constant USDC = address(0x28709Af9376191653bA671d3C74682cA6F46a4Fd);
-    address private constant DAO = address(0xAabF00a16a3e90A7f959522fd6451676901e336E);
-    address private constant DOLLAR = address(0x3b06B027b4B306d4696b6168D3C6d39E5B3529D0);
+    address private constant USDC = address(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);
+    address private constant DAO = address(0x590d0fC2096f0bB063d7033Fe97f6C1C512ba2B2);
+    address private constant DOLLAR = address(0xD27af03cb73a29eE2f37194c70c4Ee13B68fE8cb);
 
     uint256 private constant ORACLE_RESERVE_MINIMUM = 1e9; // 1000 USDC
 
