@@ -29,6 +29,8 @@ library Constants {
 
     /* Oracle */
     address private constant USDC = address(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);
+    address private constant DAO = address(0x590d0fC2096f0bB063d7033Fe97f6C1C512ba2B2);
+    address private constant DOLLAR = address(0xD27af03cb73a29eE2f37194c70c4Ee13B68fE8cb);
 
     uint256 private constant ORACLE_RESERVE_MINIMUM = 1e9; // 1000 USDC
 
@@ -55,7 +57,7 @@ library Constants {
     uint256 private constant GOVERNANCE_PROPOSAL_THRESHOLD = 1e16; // 1%
 
     /* DAO */
-    uint256 private constant ADVANCE_INCENTIVE = 1e20; // 100 FSD
+    uint256 private constant ADVANCE_INCENTIVE = 1e21; // 1000 FSD
 
     uint256 private constant DAO_EXIT_LOCKUP_EPOCHS = 12; // 12 epochs fluid
 
@@ -93,6 +95,14 @@ library Constants {
 
     function getUsdcAddress() internal pure returns (address) {
         return USDC;
+    }
+    
+    function getDaoAddress() internal pure returns (address) {
+        return DAO;
+    }
+
+    function getDollarAddress() internal pure returns (address) {
+        return DOLLAR;
     }
 
     function getOracleReserveMinimum() internal pure returns (uint256) {
